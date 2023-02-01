@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">        
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -21,33 +21,48 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            
-            <div style="color: white";>
-                <h1>Seznam úkolů</h1>
+        <header>
+        <nav>
+            <div class="nav-wrapper">
+              <ul>
+                <li><a href="/">Zaregistruj se</a></li>
+                <li><a href="/">Přihlaš se</a></li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+        <main>
+            <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+                
+                <div style="color: white";>
+                    <h1>Seznam úkolů</h1>
 
-                @foreach ($listTasks as $listTask)
-                <div class="flex" style="align-items: center;">
-                    <p>Úkol: {{ $listTask->name }}</p>
+                    @foreach ($listTasks as $listTask)
+                    <div class="flex" style="align-items: center;">
+                        <p>Úkol: {{ $listTask->name }}</p>
 
-                    <form method="post" action="{{ route('finishedMark', $listTask->id) }}" accept-charset="UTF-8">
-                        {{ csrf_field() }}
-                    <button type="submit" style="max-height: 25px; margin-left: 20px;">Označ dokončený</button>
+                        <form method="post" action="{{ route('finishedMark', $listTask->id) }}" accept-charset="UTF-8">
+                            {{ csrf_field() }}
+                        <button type="submit" style="max-height: 25px; margin-left: 20px;">Označ dokončený</button>
+                        </form>
+                    </div>
+                    @endforeach
+
+                    
+                    <form method="post" action="{{route ('saveTask')}}" accept-charset="UTF-8">
+                        {{  csrf_field() }}
+
+                        <label for="listTask">Nový úkol</label><br>
+                        <input type="text" name="listTask"><br>
+                        <button type="submit">Uložit úkol</button>
+
                     </form>
                 </div>
-                @endforeach
 
-                
-                <form method="post" action="{{route ('saveTask')}}" accept-charset="UTF-8">
-                    {{  csrf_field() }}
-
-                    <label for="listTask">Nový úkol</label><br>
-                    <input type="text" name="listTask"><br>
-                    <button type="submit">Uložit úkol</button>
-
-                </form>
             </div>
-
-        </div>
+        </main>
+        <footer>
+            <p>Ahoj</p>
+        </footer>
     </body>
 </html>
