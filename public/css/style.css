@@ -17,13 +17,6 @@ header {
     z-index: 1;
 }
 
-/* header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 1px;
-} */
-
 nav ul {
     display: flex;
     justify-content: space-between;

@@ -25,8 +25,8 @@
         <nav>
             <div class="nav-wrapper">
               <ul>
-                <li><a href="/">Zaregistruj se</a></li>
-                <li><a href="/">Přihlaš se</a></li>
+                <li><a href="register">Zaregistruj se</a></li>
+                <li><a href="login">Přihlaš se</a></li>
               </ul>
             </div>
           </nav>
