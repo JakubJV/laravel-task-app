@@ -29,6 +29,6 @@ class UserController extends Controller
 
         auth()->login($user);
 
-        return redirect('/users')->with('Uživatel vytvořen a přihlášen');
+        return redirect('/')->with('message', 'Uživatel vytvořen a přihlášen');
     }
 }
