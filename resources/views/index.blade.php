@@ -25,15 +25,38 @@
         <nav>
             <div class="nav-wrapper">
               <ul>
-                <li><a href="register">Zaregistruj se</a></li>
-                <li><a href="login">Přihlaš se</a></li>
+                @auth
+                <li>
+                  <span>
+                    Vítej {{auth()->user()->name}}
+                  </span>
+                </li>
+                <li>
+                  <a href="/tasks">Správa úkolů</a>
+                </li>
+                <li>
+                  <form class="logout" method="POST" action="/logout">
+                    @csrf
+                    <button type="submit">
+                     Odhlášení
+                    </button>
+                  </form>
+                </li>
+                @else
+                <li>
+                  <a href="/register">Zaregistruj se</a>
+                </li>
+                <li>
+                  <a href="/login">Přihlaš se</a>
+                </li>
+                @endauth
               </ul>
             </div>
           </nav>
         </header>
         <main>
             <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-                
+                @auth
                 <div style="color: white";>
                     <h1>Seznam úkolů</h1>
 
@@ -48,7 +71,7 @@
                     </div>
                     @endforeach
 
-                    
+                        
                     <form method="post" action="{{route ('saveTask')}}" accept-charset="UTF-8">
                         {{  csrf_field() }}
 
@@ -57,9 +80,13 @@
                         <button type="submit">Uložit úkol</button>
 
                     </form>
+                </div>  
+                @else
+                <div>
+                    <h2>Pro zobrazení a úpravu seznamu úkolů se musíte přihlásit.<h2>
                 </div>
-
             </div>
+            @endauth
         </main>
         <footer>
             <p>Ahoj</p>
