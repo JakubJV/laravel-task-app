@@ -74,16 +74,21 @@
 
       </div>
       <div>
-        <button type="submit">
+        <button type="submit" class="register-button">
           Registruj se
         </button>
       </div>
       <div>
         <p>
           Už máš účet?
-          <a href="/login">Přihlaš se</a>
+          <a href="/login" class="register-a">Přihlaš se</a>
         </p>
       </div>
     </form>
   </main>
+  <div class="footer">
+    <footer>
+        <p>© Task Webapp</p>
+    </footer>
+  </div>
 </body>

@@ -11,6 +11,7 @@ class TaskListController extends Controller
 
     public function index()
     {
+
         return view('index', ['listTasks' => ListTask::where('is_finished', 0)->get()]);
     }
 

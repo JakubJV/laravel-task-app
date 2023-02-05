@@ -20,6 +20,8 @@
         </header>
     </div>
     <main class="main-login">
+        <h2>Přihlášení</h2>
+        <p>Přihlaš se k ukládání úkolů</p>
         <div>
             <form method="POST" action="/users/authenticate" class="login-form">
                 @csrf
@@ -42,7 +44,7 @@
                     @enderror
                 </div>   
                 <div>
-                <button type="submit">
+                <button type="submit" class="login-button">
                     Přihlaš se
                 </button>
                 </div>
@@ -50,9 +52,14 @@
             <div>
                 <p>
                   Ještě nemáš účet?
-                  <a href="/register">Zaregistruj se</a>
+                  <a href="/register" class="login-a">Zaregistruj se</a>
                 </p>
             </div>
         </div>
     </main>
+    <div class="footer">
+        <footer>
+            <p>© Task Webapp</p>
+        </footer>
+    </div>
 </body>
