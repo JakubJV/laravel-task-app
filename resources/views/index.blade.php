@@ -3,7 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">        
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <script src="//unpkg.com/alpinejs" defer></script>  
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.0/dist/alpine.js" defer></script>
+      
         <title>Domovská stránka</title>
        
     </head>
@@ -77,5 +80,12 @@
               <p>© Task Webapp</p>
           </footer>
       </div>
+      @if(session()->has('message'))
+      <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="flash-message">
+        <p>
+          {{ session('message') }}
+        </p>
+      </div>
+    @endif
     </body>
 </html>
