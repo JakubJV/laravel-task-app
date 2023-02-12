@@ -73,7 +73,7 @@
                     <h2>Pro zobrazení a úpravu seznamu úkolů se musíte přihlásit.<h2>
                 </div>
             </div>
-            @endauth
+              @endauth
         </main>
         <div class="footer">
           <footer>

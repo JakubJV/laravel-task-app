@@ -12,8 +12,15 @@ class TaskListController extends Controller
     public function index()
     {
 
-        return view('index', ['listTasks' => ListTask::where('is_finished', 0)->get()]);
+        if (auth()->check()) {
+            return view('index', ['listTasks' => ListTask::where('is_finished', 0)
+                ->where('user_id', auth()->user()->id)
+                ->get()]);
+        } else {
+            return view('index');
+        }
     }
+
 
     public function finishedMark($id)
     {
@@ -26,9 +33,11 @@ class TaskListController extends Controller
 
     public function saveTask(Request $request)
     {
+
         $newListTask = new ListTask;
         $newListTask->name = $request->listTask;
         $newListTask->is_finished = 0;
+        $newListTask->user_id = auth()->user()->id;
         $newListTask->save();
 
         return redirect('/');
